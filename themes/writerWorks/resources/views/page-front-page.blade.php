@@ -6,13 +6,13 @@
 
 @section('content')
   <div class="banner-home" style="background-image: url('@php the_field('banner_home_bg',$post) @endphp')">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-7 offset-md-1">
+    <div class="banner-home_container"> 
+
+        <div class="banner-home_title">
           <h1>@php the_field('title_banner_home',$post) @endphp</h1>
           <button class="btn button">@php the_field('text_in_button_front_page',$post) @endphp</button>
         </div>
-        <div class="col-md-4">
+        <div class="banner-home_contact">
           <div class="content-block">
             @php
               if( have_rows('phones_repeater','options') ):
@@ -66,7 +66,7 @@
             @endphp
           </div>
         </div>
-      </div>
+      
     </div>
   </div>
   <div class="uslugi container">
@@ -98,25 +98,25 @@
       <button class="btn review-all"><a href="{{ $link_to_archive_page }}">{!! the_field('text_button_home_uslugiLayer',$post) !!}</a></button>
     </div>
   </div>
-  <div class="zaboti_studentov">
-    <div class="first-block f-b" style="background-image: url(@asset('images/bg_third_section.png'));">
+  <div class="zaboti_studentov how-works">
+    <div class="first-block f-b how-works_item" style="background-image: url(@asset('images/bg_third_section.png'));">
       <div class="container">
         <div class="row">
-          <div class="col ">
+          <div class="col col-12 col-md-5">
             <p class="title text">{!! the_field('text_left_column_third_section',$post) !!}</p>
           </div>
-          <div class="col offset-2">
+          <div class="col col-md-5 offset-md-2">
             <p class="text">{!! the_field('text_right_column_third_section',$post) !!}</p>
           </div>
         </div>
       </div>
     </div>
-    <div class="second-block f-b" style="background-image: url(@asset('images/bg_third_section_two.png'));">
+    <div class="second-block f-b how-works_item" style="background-image: url(@asset('images/bg_third_section_two.png'));">
       <div class="container">
         <h3 class="text-center">{!! the_field('title_second_block_third_section',$post) !!}</h3>
         <div class="row">
           @foreach($how_we_works as $block)
-          <div class="col">
+          <div class="col col-12 col-md-4 ">
             <p class="title">{{ $block->title }}</p>
             <p class="description">{{ $block->description }}</p>
           </div>
@@ -125,42 +125,46 @@
       </div>
     </div>
   </div>
-  <div class="why_us">
-    <div class="container">
+
+  <div class="why-us">
+    <div class="container-fluid">
       <h3 class="text-center title_section">{!! pll_e('Почему нас выбирают') !!}</h3>
-      <div class="mx-auto">
+      {{-- <div class="mx-auto"> --}}
         <div class="row">
-          @foreach($why_us as $block)
-            <div class="block">
-          <div class="img-block">
-            <img src="{!! $block->img !!}" alt="{!! $block->title !!}">
-          </div>
-          <div class="content">
-            <p class="title-block">{!! $block->title !!}</p>
-            <p class="description">{!! $block->description !!}</p>
+          <div class="why-us_list">
+            @foreach($why_us as $block)
+              <div class="why-us_item">
+                <div class="img-block">
+                  <img src="{!! $block->img !!}" alt="{!! $block->title !!}">
+                </div>
+                <div class="content">
+                  <p class="title-block">{!! $block->title !!}</p>
+                  <p class="description">{!! $block->description !!}</p>
+                </div>
+              </div>
+            @endforeach
           </div>
         </div>
-          @endforeach
-        </div>
-      </div>
+      {{-- </div> --}}
     </div>
   </div>
+
   <div class="whate_we_gift" style="background-image: url('{!! the_field("bg_fifth_section",$post) !!}')">
-    <div class="container">
-      <h3 class="text-center title_section">{!! pll_e('Почему нас выбирают') !!}</h3>
-      <div class="mx-auto">
+    <div class="container-fluid">
+      <h3 class="text-center title_section">{!! pll_e('Что мы даем клиентам') !!}</h3>
         <div class="row">
-          @foreach($what_me_gift as $block)
-            <div class="block no-bg">
-              <div class="img-block">
-                <img src="{!! $block->img !!}" alt="{!! $block->title !!}">
+          <div class="gift-list">
+            @foreach($what_me_gift as $block)
+              <div class="gift-block no-bg">
+                <div class="img-block">
+                  <img src="{!! $block->img !!}" alt="{!! $block->title !!}">
+                </div>
+                <div class="gift-content">
+                  <p class="gift-title">{!! $block->title !!}</p>
+                  <p class="gift-description">{!! $block->description !!}</p>
+                </div>
               </div>
-              <div class="content">
-                <p class="title-block">{!! $block->title !!}</p>
-                <p class="description">{!! $block->description !!}</p>
-              </div>
-            </div>
-          @endforeach
+            @endforeach
         </div>
       </div>
     </div>
