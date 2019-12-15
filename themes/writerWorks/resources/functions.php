@@ -94,16 +94,6 @@ Container::getInstance()
 function my_nav_wrap() {
     $wrap  = '<ul id="%1$s" class="%2$s">';
     $wrap .= '%3$s';
-    $wrap .= "
-<li>
-<div class='img-group-header'>
-<a href=''><img src='".get_template_directory_uri()."/assets/images/telegram_icon.png' alt='1'></a>
-<a href=''><img src='".get_template_directory_uri()."/assets/images/vibers.png' alt='2'></a>
-<a href=''><img src='".get_template_directory_uri()."/assets/images/instagram.png' alt='3'></a>
-</div>
-</li>
-
-";
     $wrap .= '</ul>';
     return $wrap;
 }
