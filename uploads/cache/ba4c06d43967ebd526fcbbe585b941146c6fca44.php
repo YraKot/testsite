@@ -14,10 +14,10 @@
         <div class="modal-body ">
           <div class="container">
             <div class="row">
-              <div class="col-md-8">
+              <div class="col-12 col-md-8">
                 <form action="<?php echo home_url().'/file-upload' ?>" method="POST" enctype="multipart/form-data">
                   <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-12 col-md-6">
                       <div class="form-group comment-form">
                         <label for="name_question"><?php echo pll_e('Ваше имя','sage'); ?></label>
                         <input type="text" value="" name="name_question">
@@ -71,7 +71,7 @@
                       </div>
 
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-12 col-md-6">
 
                       <div class="form-group comment-form">
                         <label for="name_question"><?php echo pll_e('Дата выполнения','sage'); ?></label>
@@ -95,13 +95,10 @@
                       <input type="submit btn button-red" hidden='true' value="<?php echo pll_e('ОТПРАВИТЬ','sage'); ?>">
                       <button class="btn button-red"><?php echo pll_e('ОТПРАВИТЬ','sage'); ?></button>
                     </div>
-                    <div class="col-12">
-
-                    </div>
                   </div>
                 </form>
               </div>
-              <div class="col-md-4">
+              <div class="col-12 col-md-4">
                 <p class="title-block-modal">
                   Средняя стоимость
                 </p>

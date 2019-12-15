@@ -1,12 +1,12 @@
 <?php $__env->startSection('content'); ?>
   <div class="banner-home" style="background-image: url('<?php the_field('banner_home_bg',$post) ?>')">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-7 offset-md-1">
+    <div class="banner-home_container"> 
+
+        <div class="banner-home_title">
           <h1><?php the_field('title_banner_home',$post) ?></h1>
           <button class="btn button"><?php the_field('text_in_button_front_page',$post) ?></button>
         </div>
-        <div class="col-md-4">
+        <div class="banner-home_contact">
           <div class="content-block">
             <?php
               if( have_rows('phones_repeater','options') ):
@@ -60,7 +60,7 @@
             ?>
           </div>
         </div>
-      </div>
+      
     </div>
   </div>
   <div class="uslugi container">
@@ -92,25 +92,25 @@
       <button class="btn review-all"><a href="<?php echo e($link_to_archive_page); ?>"><?php echo the_field('text_button_home_uslugiLayer',$post); ?></a></button>
     </div>
   </div>
-  <div class="zaboti_studentov">
-    <div class="first-block f-b" style="background-image: url(<?= App\asset_path('images/bg_third_section.png'); ?>);">
+  <div class="zaboti_studentov how-works">
+    <div class="first-block f-b how-works_item" style="background-image: url(<?= App\asset_path('images/bg_third_section.png'); ?>);">
       <div class="container">
         <div class="row">
-          <div class="col ">
+          <div class="col col-12 col-md-5">
             <p class="title text"><?php echo the_field('text_left_column_third_section',$post); ?></p>
           </div>
-          <div class="col offset-2">
+          <div class="col col-md-5 offset-md-2">
             <p class="text"><?php echo the_field('text_right_column_third_section',$post); ?></p>
           </div>
         </div>
       </div>
     </div>
-    <div class="second-block f-b" style="background-image: url(<?= App\asset_path('images/bg_third_section_two.png'); ?>);">
+    <div class="second-block f-b how-works_item" style="background-image: url(<?= App\asset_path('images/bg_third_section_two.png'); ?>);">
       <div class="container">
         <h3 class="text-center"><?php echo the_field('title_second_block_third_section',$post); ?></h3>
         <div class="row">
           <?php $__currentLoopData = $how_we_works; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $block): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-          <div class="col">
+          <div class="col col-12 col-md-4 ">
             <p class="title"><?php echo e($block->title); ?></p>
             <p class="description"><?php echo e($block->description); ?></p>
           </div>
@@ -119,42 +119,46 @@
       </div>
     </div>
   </div>
-  <div class="why_us">
-    <div class="container">
+
+  <div class="why-us">
+    <div class="container-fluid">
       <h3 class="text-center title_section"><?php echo pll_e('Почему нас выбирают'); ?></h3>
-      <div class="mx-auto">
+      
         <div class="row">
-          <?php $__currentLoopData = $why_us; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $block): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-            <div class="block">
-          <div class="img-block">
-            <img src="<?php echo $block->img; ?>" alt="<?php echo $block->title; ?>">
-          </div>
-          <div class="content">
-            <p class="title-block"><?php echo $block->title; ?></p>
-            <p class="description"><?php echo $block->description; ?></p>
+          <div class="why-us_list">
+            <?php $__currentLoopData = $why_us; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $block): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+              <div class="why-us_item">
+                <div class="img-block">
+                  <img src="<?php echo $block->img; ?>" alt="<?php echo $block->title; ?>">
+                </div>
+                <div class="content">
+                  <p class="title-block"><?php echo $block->title; ?></p>
+                  <p class="description"><?php echo $block->description; ?></p>
+                </div>
+              </div>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
           </div>
         </div>
-          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-        </div>
-      </div>
+      
     </div>
   </div>
+
   <div class="whate_we_gift" style="background-image: url('<?php echo the_field("bg_fifth_section",$post); ?>')">
-    <div class="container">
-      <h3 class="text-center title_section"><?php echo pll_e('Почему нас выбирают'); ?></h3>
-      <div class="mx-auto">
+    <div class="container-fluid">
+      <h3 class="text-center title_section"><?php echo pll_e('Что мы даем клиентам'); ?></h3>
         <div class="row">
-          <?php $__currentLoopData = $what_me_gift; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $block): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-            <div class="block no-bg">
-              <div class="img-block">
-                <img src="<?php echo $block->img; ?>" alt="<?php echo $block->title; ?>">
+          <div class="gift-list">
+            <?php $__currentLoopData = $what_me_gift; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $block): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+              <div class="gift-block no-bg">
+                <div class="img-block">
+                  <img src="<?php echo $block->img; ?>" alt="<?php echo $block->title; ?>">
+                </div>
+                <div class="gift-content">
+                  <p class="gift-title"><?php echo $block->title; ?></p>
+                  <p class="gift-description"><?php echo $block->description; ?></p>
+                </div>
               </div>
-              <div class="content">
-                <p class="title-block"><?php echo $block->title; ?></p>
-                <p class="description"><?php echo $block->description; ?></p>
-              </div>
-            </div>
-          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </div>
       </div>
     </div>
